@@ -31,7 +31,8 @@ class KerberosLoginHandler(BaseHandler):
         self.set_status(401)
         data = self.render_template(
             'kerberos_login_error.html',
-            login_url=self.settings['login_url']
+            login_url=self.settings['login_url'],
+            sync=True
         )
         self.write(data)
         self.set_header("WWW-Authenticate", "Negotiate")
